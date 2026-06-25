@@ -1,7 +1,7 @@
 import { MdAssignmentAdd } from "react-icons/md";
-import { MdAssignmentTurnedIn } from "react-icons/md";
+// import { MdAssignmentTurnedIn } from "react-icons/md";
 import { SiListmonk } from "react-icons/si";
-import { IoStatsChart } from "react-icons/io5";
+// import { IoStatsChart } from "react-icons/io5";
 import { FaPlus } from "react-icons/fa6";
 import {TransparentBtn} from "../components/TransparentBtn.tsx"
 import { useOutletContext } from 'react-router-dom';
@@ -14,7 +14,7 @@ interface OutletContextType {
   handleDeleteTask: Function
 }
 export function Dashboard(){
-    const {userTasks,handleAddTask,handleDeleteTask} = useOutletContext<OutletContextType>();
+    const {userTasks/*,handleAddTask,handleDeleteTask*/} = useOutletContext<OutletContextType>();
 
     return (
          <div id='dashboard' className='flex gap-6 bg-white min-h-full w-11/12 max-w-[950px] p-[28px] border border-gray-300 shadow-lg max-md:p-[12px] max-md:w-[95%]'>

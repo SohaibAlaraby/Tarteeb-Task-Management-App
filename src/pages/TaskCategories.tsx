@@ -73,18 +73,18 @@ export function TaskCategories(){
         });
     }
 
-    function handleAddCategory(CategoryTitle:string) {
-        setCategories((prevCategories:CategoryIntf[])=>{
-            return [
-                    ...prevCategories,
-                    {
-                        id:crypto.randomUUID(),
-                        title:CategoryTitle,
-                        items:[]
-                    }
-                ];
-        })
-    }
+    // function handleAddCategory(CategoryTitle:string) {
+    //     setCategories((prevCategories:CategoryIntf[])=>{
+    //         return [
+    //                 ...prevCategories,
+    //                 {
+    //                     id:crypto.randomUUID(),
+    //                     title:CategoryTitle,
+    //                     items:[]
+    //                 }
+    //             ];
+    //     })
+    // }
 
     function handleAddCategoryItem(itemName:string, categoryID:string){
         setCategories((prevCategories)=>{
