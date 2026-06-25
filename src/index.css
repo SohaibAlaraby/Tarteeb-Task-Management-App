@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+--color-Milky-White:#F8F8F8;
+--color-WaterMelon-Red:#FF6767;
+--color-light-Orange:#F24E1E;
+--color-light-blue: #3ABEFF;
+--color-hover-light:rgba(102, 102, 102, 0.5);
+--font-Lobster-Two:"Lobster Two", sans-serif;
+--font-Lobster-Two:"Lobster Two", sans-serif;
+--font-Inter:"Inter", sans-serif;
+--font-Montserrat:"Montserrat", sans-serif;
+}
+/*:root {
+  
+
+
+  @media (max-width: 1024px) {
+
+  }
+}
+
+ @media (prefers-color-scheme: dark) {
+  :root {
+    
+  }
+} */
+
+#root {
+  width: 100%;
+  margin: 0;
+}
+
+body {
+  /* height:100vh; */
+  width: 100vw;
+  background-color: #000000;
+  margin:0;
+  font-family: "Inter", sans-serif;
+  box-sizing: border-box;
+}
