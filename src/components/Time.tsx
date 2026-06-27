@@ -6,7 +6,7 @@ export function getFormattedDate(now: Date) {
     return {
         day: new Intl.DateTimeFormat(undefined, { weekday: 'long' }).format(now),
         date: new Intl.DateTimeFormat(undefined, {
-            month: 'long',
+            month: 'numeric',
             day: 'numeric',
             year: 'numeric',
         }).format(now),

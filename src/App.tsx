@@ -4,7 +4,7 @@ import {Header} from './components/Header.tsx';
 import {Sidebar} from './components/Sidebar.tsx';
 import { Outlet } from 'react-router-dom';
 import {useState} from 'react';
-import {initialTasks, type userTasksIntf} from './data/Tasks.tsx';
+import {initialTasks, type userTasksIntf} from './data/initialTasks.tsx';
 function App() {
   const [userTasks,setUserTasks] = useState<userTasksIntf[]>(initialTasks);
 
@@ -13,7 +13,7 @@ function App() {
       return [
         task,
         ...previousTasks
-      ]
+      ];
     });
   }
 
@@ -29,7 +29,6 @@ function App() {
         <Sidebar/>
         <main className='bg-white flex flex-1 justify-center items-start py-[24px] h-full overflow-y-auto'>
             <Outlet context={{userTasks, handleAddTask, handleDeleteTask}}/>
-            {/* <CreateCategories/> */}
         </main>
       </div>
     </div>

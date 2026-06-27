@@ -78,7 +78,7 @@ export function Sidebar(){
     }
 
     return (
-        <div className={`relative h-full shrink-0 max-md:w-0 ${isMinimized ? 'w-auto' : 'w-[330px] max-lg:w-[240px]'}`}>
+        <div className={`relative h-full shrink-0  max-md:w-0 ${isMinimized ? 'w-auto' : 'w-[330px] max-lg:w-[240px]'}`}>
             <button
                 type="button"
                 aria-expanded={!isMinimized}
@@ -95,7 +95,7 @@ export function Sidebar(){
             </button>
 
             <aside
-                className={`bg-WaterMelon-Red h-full relative overflow-y-auto py-[50px] transition-all duration-200 ease-in-out
+                className={`bg-WaterMelon-Red h-full relative rounded-r-2xl overflow-y-auto py-[50px] transition-all duration-200 ease-in-out
                     
                     ${isMinimized
                         ? 'w-auto px-[4px] max-md:-translate-x-full'
