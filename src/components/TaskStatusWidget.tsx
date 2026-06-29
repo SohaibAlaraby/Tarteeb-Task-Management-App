@@ -68,7 +68,7 @@ export function TaskStatusWidget({ userTasks }: { userTasks: any[] }) {
         <h2 className="flex items-center gap-1.5 text-WaterMelon-Red">Task Status</h2>
       </header>
 
-      <div className="flex justify-between items-center flex-wrap w-full gap-4 max-sm:flex-col max-sm:gap-8">
+      <div className="flex justify-between items-center flex-wrap w-full gap-4  max-sm:gap-8">
         <CircularProgress percentage={completedPercent} colorClass="stroke-green-600" label="Completed" />
         <CircularProgress percentage={inProgressPercent} colorClass="stroke-blue-600" label="In Progress" />
         <CircularProgress percentage={notStartedPercent} colorClass="stroke-red-600" label="Not Started" />

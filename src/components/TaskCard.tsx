@@ -1,15 +1,20 @@
 import { SiListmonk } from "react-icons/si";
 import { type userTasksIntf } from "../data/initialTasks.tsx";
-import { type ComponentPropsWithoutRef } from "react";
+import { type ComponentPropsWithoutRef, type MouseEventHandler } from "react";
 import {getFormattedDate} from '../components/Time.tsx';
 
 interface TaskCardIntf extends ComponentPropsWithoutRef<'article'> {
-    task: userTasksIntf
+    task: userTasksIntf,
+    isClickable?: boolean,
+    handleCardClick?: MouseEventHandler<HTMLElement>,
 }
 
-export function TaskCard({task}:TaskCardIntf){
+export function TaskCard({task, isClickable = false, handleCardClick = ()=>{}}:TaskCardIntf){
     return (
-        <article className="flex gap-3 p-3 border border-gray-400 rounded-2xl">
+        <article 
+        className={`flex gap-3 p-3 border border-gray-400 rounded-2xl ${isClickable? 'cursor-pointer hover:bg-gray-200': ''}`}
+        onClick={handleCardClick}
+        >
         <SiListmonk className={`${
             {
                 'Not Started':'text-red-600',
@@ -29,7 +34,7 @@ export function TaskCard({task}:TaskCardIntf){
                     'Extreme':'text-red-500',
                     'Moderate':'text-blue-400',
                     'Low':'text-amber-800'
-                }[task.priority] || 'text-red-600'
+                }[task.priority] || 'text-amber-800'
                     }`}>{task.priority}</span></span>
                     <time dateTime={task.createdAt.toISOString()} className="text-gray-400">{`Created on: ${getFormattedDate(task.createdAt).date}`}                                        
                     </time>

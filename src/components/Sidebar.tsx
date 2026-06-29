@@ -1,5 +1,5 @@
 import { MdDashboard } from "react-icons/md";
-import { FaExclamation } from "react-icons/fa";
+// import { FaExclamation } from "react-icons/fa";
 import { HiOutlineClipboardCheck } from "react-icons/hi";
 import { FaListUl } from "react-icons/fa6";
 import { IoMdSettings } from "react-icons/io";
@@ -27,16 +27,10 @@ const btns: SidebarBtn[] = [
         path: '/dashboard'
     },
     {
-        id: 'sb-vitaltask-btn',
-        icon: FaExclamation,
-        text: 'Vital Task',
-        path: '/vital-tasks'
-    },
-    {
-        id: 'sb-mytask-btn',
+        id: 'sb-task-btn',
         icon: HiOutlineClipboardCheck,
-        text: 'My Task',
-        path: '/my-tasks'
+        text: 'Tasks',
+        path: '/tasks'
     },
     {
         id: 'sb-taskcategories-btn',

@@ -4,8 +4,7 @@ import { createBrowserRouter, RouterProvider, Navigate} from 'react-router-dom'
 import './index.css'
 import App from './App.tsx'
 import {Dashboard} from './pages/Dashboard.tsx'
-import {VitalTasks} from './pages/VitalTasks.tsx'
-import {MyTasks} from './pages/MyTasks.tsx'
+import {Tasks} from './pages/Tasks.tsx'
 import {TaskCategories} from './pages/TaskCategories.tsx'
 import {Settings} from './pages/Settings.tsx'
 import {Help} from './pages/Help.tsx'
@@ -24,12 +23,8 @@ const router = createBrowserRouter([
         element: <Dashboard />
       },
       {
-        path: '/my-tasks',
-        element: <MyTasks />
-      },
-      {
-        path: '/vital-tasks',
-        element: <VitalTasks />
+        path: '/tasks',
+        element: <Tasks />
       },
       {
         path: '/categories',

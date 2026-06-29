@@ -98,5 +98,68 @@ export const initialTasks: userTasksIntf[] = [
     priority: 'Moderate',
     status: 'In Progress',
     description: 'Audit the final Vite build bundle sizes and clean up unused CSS properties or redundant style declarations.'
+  },
+  {
+    id: crypto.randomUUID(),
+    title: 'Setup Project Repository',
+    createdAt: new Date('2026-06-01T09:00:00'),
+    dueDate: new Date('2026-06-02T17:00:00'),
+    priority: 'Low',
+    status: 'Completed',
+    description: 'Initialize Git repository, configure .gitignore, and set up Vite with React and TypeScript templates.'
+  },
+  {
+    id: crypto.randomUUID(),
+    title: 'Configure Tailwind CSS',
+    createdAt: new Date('2026-06-03T10:00:00'),
+    dueDate: new Date('2026-06-04T12:00:00'),
+    priority: 'Moderate',
+    status: 'Completed',
+    description: 'Install Tailwind CSS, configure tailwind.config.js, setup custom theme colors, and import baseline directives.'
+  },
+  {
+    id: crypto.randomUUID(),
+    title: 'Design Sidebar Navigation Component',
+    createdAt: new Date('2026-06-06T11:00:00'),
+    dueDate: new Date('2026-06-09T18:00:00'),
+    priority: 'Extreme',
+    status: 'Completed',
+    description: 'Build a responsive Sidebar navigation with collapsible state management and hover animations for links.'
+  },
+  {
+    id: crypto.randomUUID(),
+    title: 'Create Task Mock Data Structure',
+    createdAt: new Date('2026-06-11T14:00:00'),
+    dueDate: new Date('2026-06-12T16:00:00'),
+    priority: 'Low',
+    status: 'Completed',
+    description: 'Define TypeScript interfaces for tasks and seed initial arrays with mock data representing various priority levels.'
+  },
+  {
+    id: crypto.randomUUID(),
+    title: 'Implement Task Status Widget',
+    createdAt: new Date('2026-06-15T13:00:00'),
+    dueDate: new Date('2026-06-18T15:00:00'),
+    priority: 'Extreme',
+    status: 'Completed',
+    description: 'Develop SVG-based circular progress bars to dynamically calculate and display percentages for completed and pending tasks.'
+  },
+  {
+    id: crypto.randomUUID(),
+    title: 'Setup GitHub Actions CI Workflow',
+    createdAt: new Date('2026-06-20T10:00:00'),
+    dueDate: new Date('2026-06-22T20:00:00'),
+    priority: 'Moderate',
+    status: 'Completed',
+    description: 'Create a YAML workflow script to run automated linters and TypeScript compilation checks on every main branch push.'
+  },
+  {
+    id: crypto.randomUUID(),
+    title: 'Deploy Initial Build to Vercel',
+    createdAt: new Date('2026-06-24T09:30:00'),
+    dueDate: new Date('2026-06-25T11:00:00'),
+    priority: 'Moderate',
+    status: 'Completed',
+    description: 'Link GitHub repository to Vercel, setup production environment variables, and verify live server routing functionality.'
   }
 ];
