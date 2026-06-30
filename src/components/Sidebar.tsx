@@ -58,12 +58,8 @@ const btns: SidebarBtn[] = [
 // };
 
 export function Sidebar(){
-    const [activeBtn, setActiveBtn] = useState<string | null>('sb-dashboard-btn');
     const [isMinimized,setIsMinimized] = useState(false);
 
-    function handleBtnClick(btnID:string){
-        setActiveBtn(btnID);
-    }
 
     function handleMinimizeBtn(){
         setIsMinimized((prevState) => {
@@ -102,14 +98,10 @@ export function Sidebar(){
                     return (
                         <li key={btn.id}>
                             <NavLink to={btn.path} 
-                            className={`h-[59px] flex items-center font-Inter rounded-[14px] px-[16px] hover:bg-hover-light transition-transform duration-200 hover:scale-105 active:scale-95 text-[16px] max-md:h-[48px] max-md:text-[12px]
-                            ${activeBtn === btn.id?'bg-white text-WaterMelon-Red': 'text-white'}
+                            className={({isActive})=>`h-[59px] flex items-center font-Inter rounded-[14px] px-[16px] hover:bg-hover-light transition-transform duration-200 hover:scale-105 active:scale-95 text-[16px] max-md:h-[48px] max-md:text-[12px]
+                            ${isActive?'bg-white text-WaterMelon-Red': 'text-white'}
                             ${isMinimized?'aspect-square':'w-full gap-4'}
                             `}
-
-                            onClick={() => {
-                                handleBtnClick(btn.id);
-                            }}
                             ><Icon className="text-3xl max-md:text-2xl shrink-0"/>
                             {!isMinimized && btn.text}
                             </NavLink>
