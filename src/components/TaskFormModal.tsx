@@ -23,7 +23,7 @@ export function TaskFormModal({ref, onSave, mode, taskToEdit, onClose}:TaskFormM
         const d = new Date(date);
         return d.toISOString().split('T')[0];
     }
-    function taskAction(prevState:any, formData:any){
+    function taskAction(_prevState:any, formData:any){
             const title = formData.get('title') as string;
             const dueDateInput = formData.get('dueDate') as string;
             const priority = formData.get('priority') as string;
