@@ -1,14 +1,7 @@
 import {useState,useRef,useEffect} from 'react';
 
 import { TimerCircularProgress } from '../components/TimerCircularProgress.tsx'
-import { useOutletContext } from 'react-router-dom';
-import { type userTasksIntf } from "../data/initialTasks"
 
-interface OutletContextType {
-  userTasks: userTasksIntf[],
-  addTask:Function,
-  deleteTask: Function
-}
 type pomodoroType = {
     startTime:number,
     runningTime:number
