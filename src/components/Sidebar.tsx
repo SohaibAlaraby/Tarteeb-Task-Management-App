@@ -2,11 +2,13 @@ import { MdDashboard } from "react-icons/md";
 // import { FaExclamation } from "react-icons/fa";
 import { HiOutlineClipboardCheck } from "react-icons/hi";
 import { FaListUl } from "react-icons/fa6";
-import { IoMdSettings } from "react-icons/io";
-import { IoIosHelpCircle } from "react-icons/io";
+// import { IoMdSettings } from "react-icons/io";
+// import { IoIosHelpCircle } from "react-icons/io";
 // import { MdLogout } from "react-icons/md";
 import { FaArrowLeft } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
+import { RiTimerFill } from "react-icons/ri";
+import { FaTrash } from "react-icons/fa";
 import type { IconType } from 'react-icons';
 import {useState} from 'react';
 import { NavLink } from "react-router-dom";
@@ -39,16 +41,16 @@ const btns: SidebarBtn[] = [
         path: '/categories'
     },
     {
-        id: 'sb-settings-btn',
-        icon: IoMdSettings,
-        text: 'Settings',
-        path: '/settings'
+        id: 'sb-pomodoro-btn',
+        icon: RiTimerFill,
+        text: 'Pomodoro',
+        path: '/pomodoro'
     },
     {
         id: 'sb-help-btn',
-        icon: IoIosHelpCircle,
-        text: 'Help',
-        path: '/help'
+        icon: FaTrash,
+        text: 'Trash',
+        path: '/trash'
     }
 ];
 // const logoutBtn:SidebarBtn = {

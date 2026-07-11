@@ -6,8 +6,8 @@ import App from './App.tsx'
 import {Dashboard} from './pages/Dashboard.tsx'
 import {Tasks} from './pages/Tasks.tsx'
 import {TaskCategories} from './pages/TaskCategories.tsx'
-import {Settings} from './pages/Settings.tsx'
-import {Help} from './pages/Help.tsx'
+import {Pomodoro} from './pages/Pomodoro.tsx'
+import {Trash} from './pages/Trash.tsx'
 
 const router = createBrowserRouter([
   {
@@ -31,12 +31,12 @@ const router = createBrowserRouter([
         element: <TaskCategories />
       },
       {
-        path: '/settings',
-        element: <Settings />
+        path: '/pomodoro',
+        element: <Pomodoro />
       },
       {
-        path: '/help',
-        element: <Help />
+        path: '/trash',
+        element: <Trash />
       },
     ]
   }
