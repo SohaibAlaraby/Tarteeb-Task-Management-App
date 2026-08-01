@@ -4,14 +4,16 @@ import {Header} from './components/Header.tsx';
 import {Sidebar} from './components/Sidebar.tsx';
 import { Outlet } from 'react-router-dom';
 import {useState} from 'react';
-import {initialTasks, type userTasksIntf} from './data/initialTasks.tsx';
-function App() {
-  const [userTasks,setUserTasks] = useState<userTasksIntf[]>(initialTasks);
+import {initialTasks} from './data/initialTasks.tsx';
+import type IUserTasks from './Interfaces/userTasks.type.ts';
 
-  const [tasksInTrash, setTasksInTrash] = useState<userTasksIntf[]>([]);
+function App() {
+  const [userTasks,setUserTasks] = useState<IUserTasks[]>(initialTasks);
+
+  const [tasksInTrash, setTasksInTrash] = useState<IUserTasks[]>([]);
   
 
-  function addTask(newTask:userTasksIntf){
+  function addTask(newTask:IUserTasks){
     setUserTasks((previousTasks ) => {
       return [
         newTask,
@@ -21,7 +23,7 @@ function App() {
   }
 
   function moveTasktoTrash(taskID:string){
-    const taskObject:userTasksIntf|undefined= userTasks.find((task)=> task.id === taskID);
+    const taskObject:IUserTasks|undefined= userTasks.find((task)=> task.id === taskID);
     if(!taskObject){
       return;
     }
@@ -36,7 +38,7 @@ function App() {
     });
   }
 
-  function editTask(editedTask:userTasksIntf){
+  function editTask(editedTask:IUserTasks){
     setUserTasks((previousTasks) => {
       return previousTasks.map(task => {
         return (task.id === editedTask.id)? editedTask: task;
