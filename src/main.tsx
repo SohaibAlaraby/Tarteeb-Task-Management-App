@@ -7,7 +7,7 @@ import {Dashboard} from './pages/Dashboard.tsx'
 import {Tasks} from './pages/Tasks.tsx'
 import {TaskCategories} from './pages/TaskCategories.tsx'
 import {Pomodoro} from './pages/Pomodoro.tsx'
-import {Trash} from './pages/Trash.tsx'
+import RecycleBin from './pages/RecycleBin.tsx'
 
 const router = createBrowserRouter([
   {
@@ -35,8 +35,8 @@ const router = createBrowserRouter([
         element: <Pomodoro />
       },
       {
-        path: '/trash',
-        element: <Trash />
+        path: '/RecycleBin',
+        element: <RecycleBin />
       },
     ]
   }

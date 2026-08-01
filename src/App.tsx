@@ -10,7 +10,7 @@ import type IUserTasks from './Interfaces/userTasks.type.ts';
 function App() {
   const [userTasks,setUserTasks] = useState<IUserTasks[]>(initialTasks);
 
-  const [tasksInTrash, setTasksInTrash] = useState<IUserTasks[]>([]);
+  const [tasksInRecyclBin, setTasksInRecyclBin] = useState<IUserTasks[]>([]);
   
 
   function addTask(newTask:IUserTasks){
@@ -27,7 +27,7 @@ function App() {
     if(!taskObject){
       return;
     }
-    setTasksInTrash((prevTrashTasks)=>{
+    setTasksInRecyclBin((prevTrashTasks)=>{
       return[
         taskObject,
         ...prevTrashTasks
@@ -51,7 +51,7 @@ function App() {
       <div className='flex flex-1 overflow-hidden'>
         <Sidebar/>
         <main className='bg-white flex flex-1 justify-center items-start py-[24px] h-full overflow-y-auto'>
-            <Outlet context={{userTasks, addTask, moveTasktoTrash, editTask,tasksInTrash}}/>
+            <Outlet context={{userTasks, addTask, moveTasktoTrash, editTask,tasksInRecyclBin}}/>
         </main>
       </div>
     </div>

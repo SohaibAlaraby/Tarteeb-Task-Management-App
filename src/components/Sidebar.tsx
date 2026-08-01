@@ -49,8 +49,8 @@ const btns: SidebarBtn[] = [
     {
         id: 'sb-help-btn',
         icon: FaTrash,
-        text: 'Trash',
-        path: '/trash'
+        text: 'Recycle Bin',
+        path: '/RecycleBin'
     }
 ];
 // const logoutBtn:SidebarBtn = {
