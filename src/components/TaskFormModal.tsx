@@ -3,14 +3,14 @@ import { useActionState } from 'react';
 import { Modal } from './Modal.tsx';
 import { TitleDash } from './TitleDash.tsx';
 import { type DialogRef } from './Modal.tsx';
-import type { userTasksIntf } from '../data/initialTasks.tsx';
+import type IUserTasks from '../Interfaces/userTasks.type.ts';
 
 type modeType = 'add' | 'edit';
 
 interface TaskFormModalProps {
     ref:React.Ref<DialogRef>;
     mode: modeType;
-    taskToEdit?: userTasksIntf | null;
+    taskToEdit?: IUserTasks | null;
     onSave: (taskValues:any) => void;
     onClose: () => void;
     isOpen?:boolean;

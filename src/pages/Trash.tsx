@@ -1,7 +1,7 @@
 import { useOutletContext } from 'react-router-dom';
 
 import type IoutletContext from '../Interfaces/outletContext.type.ts';
-import type IUserTasks from '../Interfaces/userTasks.type.ts';
+// import type IUserTasks from '../Interfaces/userTasks.type.ts';
 import TaskList from '../components/TaskList.tsx';
 export function Trash(){
     const {tasksInTrash} = useOutletContext<IoutletContext>();

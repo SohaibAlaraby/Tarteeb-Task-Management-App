@@ -12,7 +12,6 @@ import { type DialogRef} from "../components/Modal.tsx"
 import type IoutletContext from '../Interfaces/outletContext.type.ts';
 import type IUserTasks from '../Interfaces/userTasks.type.ts';
 
-import TaskCard from "../components/TaskCard.tsx";
 import TaskList from '../components/TaskList.tsx';
 import { TitleDash } from "../components/TitleDash.tsx";
 // import { CategoryBtn } from "../components/CategoryBtn.tsx";
