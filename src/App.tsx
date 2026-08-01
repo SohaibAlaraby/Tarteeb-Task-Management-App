@@ -8,6 +8,7 @@ import {initialTasks, type userTasksIntf} from './data/initialTasks.tsx';
 function App() {
   const [userTasks,setUserTasks] = useState<userTasksIntf[]>(initialTasks);
 
+  const [tasksInTrash, setTasksInTrash] = useState<userTasksIntf[]>([]);
   
 
   function addTask(newTask:userTasksIntf){
@@ -19,7 +20,17 @@ function App() {
     });
   }
 
-  function deleteTask(taskID:string){
+  function moveTasktoTrash(taskID:string){
+    const taskObject:userTasksIntf|undefined= userTasks.find((task)=> task.id === taskID);
+    if(!taskObject){
+      return;
+    }
+    setTasksInTrash((prevTrashTasks)=>{
+      return[
+        taskObject,
+        ...prevTrashTasks
+      ]
+    });
     setUserTasks((previousTasks) => {
       return previousTasks.filter((task) => task.id !== taskID);
     });
@@ -38,7 +49,7 @@ function App() {
       <div className='flex flex-1 overflow-hidden'>
         <Sidebar/>
         <main className='bg-white flex flex-1 justify-center items-start py-[24px] h-full overflow-y-auto'>
-            <Outlet context={{userTasks, addTask, deleteTask, editTask}}/>
+            <Outlet context={{userTasks, addTask, moveTasktoTrash, editTask,tasksInTrash}}/>
         </main>
       </div>
     </div>

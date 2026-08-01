@@ -1,15 +1,8 @@
 import { SiListmonk } from "react-icons/si";
-import { type userTasksIntf } from "../data/initialTasks.tsx";
-import { type ComponentPropsWithoutRef, type MouseEventHandler } from "react";
+import type ITaskCardProps from "./TaskCard.type.ts";
 import {getFormattedDate} from '../components/Time.tsx';
 
-interface TaskCardIntf extends ComponentPropsWithoutRef<'article'> {
-    task: userTasksIntf,
-    isClickable?: boolean,
-    handleCardClick?: MouseEventHandler<HTMLElement>,
-}
-
-export function TaskCard({task, isClickable = false, handleCardClick = ()=>{}}:TaskCardIntf){
+export default function TaskCard({task, isClickable = false, handleCardClick = ()=>{}}:ITaskCardProps){
     return (
         <article 
         className={`flex gap-3 p-3 border border-gray-400 rounded-2xl ${isClickable? 'cursor-pointer hover:bg-gray-200': ''}`}
@@ -42,10 +35,10 @@ export function TaskCard({task, isClickable = false, handleCardClick = ()=>{}}:T
                 <div className="flex justify-between flex-wrap gap-1">
                     <span >Status: <span className={`${
                         {
-                    'Not Started':'text-red-600',
-                    'In Progress':'text-blue-600',
-                    'Completed':'text-green-600'
-                }[task.status] || 'text-red-600'
+                        'Not Started':'text-red-600',
+                        'In Progress':'text-blue-600',
+                        'Completed':'text-green-600'
+                    }[task.status] || 'text-red-600'
                     }`}>{task.status}</span></span>
                     <time dateTime={task.dueDate.toISOString()} className="text-gray-400">{`due on: ${getFormattedDate(task.dueDate).date}`}          
                     </time>

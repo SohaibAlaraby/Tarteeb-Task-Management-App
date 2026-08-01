@@ -1,14 +1,6 @@
-export interface userTasksIntf {
-  id:string,
-  title:string,
-  createdAt:Date,
-  dueDate:Date,
-  priority:string,
-  status:string,
-  description:string,
-}
+import type IUserTasks from '../Interfaces/userTasks.type';
 
-export const initialTasks: userTasksIntf[] = [
+export const initialTasks: IUserTasks[] = [
   {
     id: crypto.randomUUID(),
     title: 'Review Project Architecture',

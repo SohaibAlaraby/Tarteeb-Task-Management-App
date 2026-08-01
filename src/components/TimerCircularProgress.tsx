@@ -106,7 +106,7 @@ export function TimerCircularProgress({ remainingSeconds,totalSeconds,onTimeChan
       onResetTimer();
     }
   }
-  const inputStyle = "w-14 bg-transparent text-center font-bold text-gray-800 font-mono text-4xl max-md:text-3xl focus:outline-none select-all";
+  const inputStyle = "w-14 bg-transparent text-center font-bold text-gray-800 font-mono text-5xl max-md:text-4xl focus:outline-none select-all";
   const size = 600; 
   const strokeWidth = 10;
   const center = size / 2; // 200

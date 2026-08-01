@@ -7,21 +7,18 @@ import { MdDelete } from "react-icons/md";
 
 import { OneIconBtn } from "../components/OneIconBtn.tsx";
 import {TransparentBtn} from "../components/TransparentBtn.tsx"
-import { type userTasksIntf } from "../data/initialTasks.tsx";
-import { type DialogRef} from "../components/Modal.tsx"
 
-import { TaskCard } from "../components/TaskCard.tsx";
+import { type DialogRef} from "../components/Modal.tsx"
+import type IoutletContext from '../Interfaces/outletContext.type.ts';
+import type IUserTasks from '../Interfaces/userTasks.type.ts';
+
+import TaskCard from "../components/TaskCard.tsx";
+import TaskList from '../components/TaskList.tsx';
 import { TitleDash } from "../components/TitleDash.tsx";
 // import { CategoryBtn } from "../components/CategoryBtn.tsx";
 import {getFormattedDate} from '../components/Time.tsx';
 import { TaskFormModal } from "../components/TaskFormModal.tsx";
 // import type { fork } from 'child_process';
-interface OutletContextType {
-  userTasks: userTasksIntf[];
-  addTask:(newTask:userTasksIntf)=>void;
-  deleteTask: (taskID:string)=>void;
-  editTask: (editedTask:userTasksIntf)=>void;
-}
 // {
 //     id: crypto.randomUUID(),
 //     title: 'Gym - Leg Day Session',
@@ -32,20 +29,20 @@ interface OutletContextType {
 //     description: 'Focus on high-intensity squat variations and progression tracking for calisthenics pull-up/dip volume.'
 //   }
 export function Tasks(){
-    const {userTasks,addTask,deleteTask,editTask} = useOutletContext<OutletContextType>();
-    const [activeTask,setActiveTask] = useState<userTasksIntf | null>(null);
+    const {userTasks,addTask,moveTasktoTrash,editTask} = useOutletContext<IoutletContext>();
+    const [activeTask,setActiveTask] = useState<IUserTasks | null>(null);
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
     const [formMode,setFormMode] = useState<'add' | 'edit'>('add');
 
     const dialog = useRef<DialogRef>(null);
 
-    function selectActiveTask(task:userTasksIntf) {
+    function selectActiveTask(task:IUserTasks) {
         setActiveTask(task);
     }
 
-    function handleDeleteTask(task:userTasksIntf) {
-        deleteTask(task.id);
+    function handleDeleteTask(task:IUserTasks) {
+        moveTasktoTrash(task.id);
         const remainingTasks = userTasks.filter(t => t.id !== task.id);
         setActiveTask(remainingTasks[0] || null);
         
@@ -124,16 +121,9 @@ export function Tasks(){
                     }}
                     ><FaPlus className="text-sm text-WaterMelon-Red"/>Add Task</TransparentBtn>
                 </header>
-                <ul className="flex flex-col gap-4 w-full h-full overflow-y-auto">
-                    {userTasks.map((task)=>{
-                        return <li key={task.id} className="w-full">
-                            <TaskCard 
-                            task={task} isClickable={true}
-                            handleCardClick={()=>selectActiveTask(task)}
-                            />
-                        </li>
-                    })}
-                </ul>
+                <TaskList 
+                tasksArr={userTasks} areTasksAccessable={true} handleTaskAccess={selectActiveTask}
+                />
             </section>
             
         </div>

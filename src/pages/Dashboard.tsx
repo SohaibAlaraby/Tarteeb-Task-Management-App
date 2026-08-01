@@ -1,17 +1,19 @@
-import { MdAssignmentAdd } from "react-icons/md";
-import { MdAssignmentTurnedIn } from "react-icons/md";
+import { MdAssignmentAdd } from 'react-icons/md';
+import { MdAssignmentTurnedIn } from 'react-icons/md';
 // import { IoStatsChart } from "react-icons/io5";
 // import { FaPlus } from "react-icons/fa6";
 // import {TransparentBtn} from "../components/TransparentBtn.tsx"
 import { useOutletContext } from 'react-router-dom';
-import { type userTasksIntf } from "../data/initialTasks.tsx";
-import {TaskStatusWidget} from "../components/TaskStatusWidget.tsx"
+import {TaskStatusWidget} from '../components/TaskStatusWidget.tsx'
 
+import type IUserTasks from '../Interfaces/userTasks.type.ts';
 // import {getFormattedDate} from '../components/Time.tsx';
 
-import { TaskCard } from "../components/TaskCard.tsx";
+// import TaskCard  from '../components/TaskCard.tsx';
+
+import TaskList from '../components/TaskList.tsx';
 interface OutletContextType {
-  userTasks: userTasksIntf[],
+  userTasks: IUserTasks[],
   addTask:Function,
   deleteTask: Function
 }
@@ -31,13 +33,7 @@ export function Dashboard(){
                     <header>
                         <h2 className="flex items-center gap-1.5 text-WaterMelon-Red"><MdAssignmentTurnedIn className="text-2xl text-gray-400"/> Completed Tasks</h2>
                     </header>
-                    <ul className="flex flex-col gap-4 w-full  overflow-y-auto">
-                   {userTasks.filter((task) => task.status==='Completed').map((task)=>{
-                        return <li key={task.id} className="w-full">
-                            <TaskCard task={task}/>
-                        </li>
-                    })}
-                </ul>
+                    <TaskList tasksArr={userTasks.filter((task) => task.status==='Completed')}/>
                 </section>
 
             </div>
@@ -46,13 +42,7 @@ export function Dashboard(){
                     <h2 className="flex items-center gap-1.5 text-WaterMelon-Red"><MdAssignmentAdd className="text-2xl text-gray-400"/> To-Do</h2>
                     {/* <TransparentBtn><FaPlus className="text-sm text-WaterMelon-Red"/>Add Task</TransparentBtn> */}
                 </header>
-                <ul className="flex flex-col gap-4 w-full h-full overflow-y-auto">
-                   {userTasks.filter((task) => task.status!=='Completed').map((task)=>{
-                        return <li key={task.id} className="w-full">
-                            <TaskCard task={task}/>
-                        </li>
-                    })}
-                </ul>
+                <TaskList tasksArr={userTasks.filter((task) => task.status!=='Completed')}/>
             </section>
         </div>
     );
